@@ -6,7 +6,7 @@ import reportWebVitals from './reportWebVitals';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
-addEventListener('load', async () => {
+window.addEventListener('load', async () => {
   let sw = await navigator.serviceWorker.register('./sw.js')
   console.log('service worker: ', sw)
 })
