@@ -5,6 +5,12 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
+
+addEventListener('load', async () => {
+  let sw = await navigator.serviceWorker.register('./sw.js')
+  console.log('service worker: ', sw)
+})
+
 root.render(
   <React.StrictMode>
     <App />

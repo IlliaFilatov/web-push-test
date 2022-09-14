@@ -2,12 +2,8 @@ import logo from './logo.svg';
 import './App.css';
 
 function App() {
-  window.addEventListener('load', async () => {
-    let sw = await navigator.serviceWorker.register('./sw.js')
-    console.log('service worker: ', sw)
-  })
-
   const subscribe = async () => {
+    console.log('subscribe initialize')
     let sw = await navigator.serviceWorker.ready;
     let push = await sw.pushManager.subscribe({
       userVisibleOnly: true,
