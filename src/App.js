@@ -1,23 +1,20 @@
-import { useEffect } from 'react'
 import logo from './logo.svg';
 import './App.css';
 
 function App() {
-  useEffect(() => {
-    window.addEventListener('load', async () => {
-      let sw = await navigator.serviceWorker.register('./sw.js')
-      console.log('service worker: ', sw)
+  window.addEventListener('load', async () => {
+    let sw = await navigator.serviceWorker.register('./sw.js')
+    console.log('service worker: ', sw)
+  })
+
+  const subscribe = async () => {
+    let sw = await navigator.serviceWorker.ready;
+    let push = await sw.pushManager.subscribe({
+      userVisibleOnly: true,
+      applicationServerKey: 'BKo4RGC0FmI2xzrIQaJYhp_TQw-v8p7mDAAJfuoJt7B8QO-L4v9-e6-aI-gYNFfAG7jhlJvqRNRlT6hT8elkjB8'
     })
-  
-    const subscribe = async () => {
-      let sw = await navigator.serviceWorker.ready;
-      let push = await sw.pushManager.subscribe({
-        userVisibleOnly: true,
-        applicationServerKey: 'BKo4RGC0FmI2xzrIQaJYhp_TQw-v8p7mDAAJfuoJt7B8QO-L4v9-e6-aI-gYNFfAG7jhlJvqRNRlT6hT8elkjB8'
-      })
-      console.log('[subscribe result]: ', JSON.stringify(push))
-    }
-  }, [])
+    console.log('[subscribe result]: ', JSON.stringify(push))
+  }
 
   return (
     <div className="App">
