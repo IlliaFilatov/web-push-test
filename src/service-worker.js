@@ -73,7 +73,7 @@ self.addEventListener('push', (e) => {
   const title = 'Aboba is coming'
   const options = {
     body: 'Now I will fight as Hoarrah Loux... Warrior!',
-    icon: '/logo.svg',
+    icon: './push.png',
   }
 
   const promiseChain = self.registration.showNotification(title, options)

@@ -29,7 +29,7 @@ function App() {
           Learn React
         </a>
          <br />
-        <button onClick={subscribe}>subscribe v 4.0</button>
+        <button onClick={subscribe}>subscribe v 4.1</button>
       </header>
     </div>
   );
