@@ -4,6 +4,7 @@ import './App.css';
 
 function App() {
   const [pushData, setPushData] = useState('')
+
   const subscribe = async () => {
     console.log('subscribe initialize')
     let sw = await navigator.serviceWorker.ready;
@@ -11,6 +12,7 @@ function App() {
       userVisibleOnly: true,
       applicationServerKey: 'BKo4RGC0FmI2xzrIQaJYhp_TQw-v8p7mDAAJfuoJt7B8QO-L4v9-e6-aI-gYNFfAG7jhlJvqRNRlT6hT8elkjB8'
     })
+    setPushData(JSON.stringify(push))
     console.log('[subscribe result]: ', JSON.stringify(push))
   }
 
