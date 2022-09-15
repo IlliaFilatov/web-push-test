@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import logo from './logo.svg';
 import './App.css';
 
 function App() {
+  const [pushData, setPushData] = useState('')
   const subscribe = async () => {
     console.log('subscribe initialize')
     let sw = await navigator.serviceWorker.ready;
@@ -28,6 +29,11 @@ function App() {
         >
           Learn React
         </a>
+         <br />
+         <span>PUSH DATA: </span>
+         <span>
+          {pushData}
+         </span>
          <br />
         <button onClick={subscribe}>subscribe v 4.2</button>
       </header>
