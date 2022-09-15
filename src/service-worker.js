@@ -70,10 +70,10 @@ self.addEventListener('message', (event) => {
 });
 
 self.addEventListener('push', (e) => {
-  const title = 'Aboba is coming'
+  const title = 'Soundcamps push notification'
   const options = {
-    body: 'Now I will fight as Hoarrah Loux... Warrior!',
-    icon: './push.png',
+    body: 'The body of web push notification example. Test #1',
+    icon: './tree.png',
   }
 
   const promiseChain = self.registration.showNotification(title, options)
