@@ -5,7 +5,7 @@ let vapIdKeys = {
   privateKey: '7hNhCLvZ_vWrQ0E8vbFYfdiYITlQhJ_fEZRAcqWfQm8'
 }
 
-push.setVapidDetails('mailto:test@test.com', ...vapIdKeys)
+push.setVapidDetails('mailto:test@test.com', vapIdKeys.publicKey, vapIdKeys.privateKey)
 
 const subscription = {};
 push.sendNotification(subscription, 'test message')
