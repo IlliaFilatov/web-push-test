@@ -69,8 +69,16 @@ self.addEventListener('message', (event) => {
   }
 });
 
-self.addEventListener('push', () => {
-  self.registration.sendNotification('test message', {})
+self.addEventListener('push', (e) => {
+  const title = 'Aboba is coming'
+  const options = {
+    body: 'Now I will fight as Hoarrah Loux... Warrior!',
+    icon: '/logo.svg',
+  }
+
+  const promiseChain = self.registration.showNotification(title, options)
+
+  e.waitUntil(promiseChain)
 })
 
 // Any other custom service worker logic can go here.
