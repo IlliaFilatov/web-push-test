@@ -83,24 +83,26 @@ self.addEventListener('push', (e) => {
 })
 
 self.addEventListener('notificationclick', function(event) {
-  let url = 'https://example.com/some-path/';
-  event.notification.close(); // Android needs explicit close.
-  event.waitUntil(
-      clients.matchAll({type: 'window'}).then( windowClients => {
-          // Check if there is already a window/tab open with the target URL
-          for (var i = 0; i < windowClients.length; i++) {
-              var client = windowClients[i];
-              // If so, just focus it.
-              if (client.url === url && 'focus' in client) {
-                  return client.focus();
-              }
-          }
-          // If not, then open the target URL in a new window/tab.
-          if (clients.openWindow) {
-              return clients.openWindow(url);
-          }
-      })
-  );
+  console.log('[Service Worker] Notification click Received.');
+  event.notification.close();
+
+/**
+* if exists open browser tab with matching url just set focus to it,
+* otherwise open new tab/window with sw root scope url
+*/
+event.waitUntil(clients.matchAll({
+  type: "window"
+}).then(function(clientList) {
+  for (var i = 0; i < clientList.length; i++) {
+    var client = clientList[i];
+    if (client.url == self.registration.scope && 'focus' in client) {
+      return client.focus();
+    }
+  }
+  if (clients.openWindow) {
+    return clients.openWindow('/');
+  }
+}));
 });
 
 // Any other custom service worker logic can go here.
