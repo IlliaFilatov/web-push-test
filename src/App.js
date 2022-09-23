@@ -37,7 +37,7 @@ function App() {
           {pushData}
          </span>
          <br />
-        <button onClick={subscribe}>subscribe v 4.4</button>
+        <button onClick={subscribe}>subscribe v 4.5</button>
       </header>
     </div>
   );
