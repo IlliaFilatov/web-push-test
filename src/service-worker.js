@@ -96,7 +96,7 @@ event.waitUntil(self.clients.matchAll({
 }).then(function(clientList) {
   for (var i = 0; i < clientList.length; i++) {
     var client = clientList[i];
-    if (client.url == self.registration.scope && 'focus' in client) {
+    if (client.url === self.registration.scope && 'focus' in client) {
       return client.focus();
     }
   }
