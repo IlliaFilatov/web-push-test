@@ -71,9 +71,9 @@ self.addEventListener('message', (event) => {
 });
 
 self.addEventListener('push', (e) => {
-  const title = 'Soundcamps push notification'
+  const title = 'Abobio bababio bibubu babubu'
   const options = {
-    body: 'The body of web push notification example. Test #1',
+    body: 'Саня пидр',
     icon: './tree.png',
   }
 
