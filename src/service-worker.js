@@ -90,7 +90,7 @@ self.addEventListener('notificationclick', function(event) {
 * if exists open browser tab with matching url just set focus to it,
 * otherwise open new tab/window with sw root scope url
 */
-event.waitUntil(clients.matchAll({
+event.waitUntil(clients?.matchAll({
   type: "window"
 }).then(function(clientList) {
   for (var i = 0; i < clientList.length; i++) {
@@ -99,8 +99,8 @@ event.waitUntil(clients.matchAll({
       return client.focus();
     }
   }
-  if (clients.openWindow) {
-    return clients.openWindow('/');
+  if (clients?.openWindow) {
+    return clients?.openWindow('/');
   }
 }));
 });
